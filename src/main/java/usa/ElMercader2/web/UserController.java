@@ -55,18 +55,21 @@ public class UserController {
         return service.getByEmail(email);
     }      
 
+    // GUARDAR
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<User> save(@RequestBody User usuario) {
         return new ResponseEntity(service.save(usuario), HttpStatus.CREATED);
     }
     
+    //ACTUALIZAR
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<User> update(@RequestBody User usuario){
         return new ResponseEntity(service.update(usuario), HttpStatus.CREATED);
     }
     
+    //DELETE
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable("id") Integer id){
         service.delete(id);
